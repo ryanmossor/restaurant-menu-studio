@@ -5,17 +5,17 @@ import java.util.Date;
 public class MenuItem {
     private float price;
     private String description;
-    private enum Category {appetizer, entree, dessert}
+    public enum Category {appetizer, entree, dessert}
     private Category category;
     private boolean isNew;
     private final Date CREATED_DATE;
 
     // Constructor
-    public MenuItem(float price, String description, Category category, boolean isNew) {
+    public MenuItem(float price, String description, Category category) {
         this.price = price;
         this.description = description;
         this.category = category;
-        this.isNew = isNew;
+        this.isNew = true;
         this.CREATED_DATE = new Date();
     }
 
@@ -58,5 +58,20 @@ public class MenuItem {
 
     public void setNew(boolean aNew) {
         isNew = aNew;
+    }
+
+    public void printMenuItem(MenuItem item) {
+        System.out.println(item);
+    }
+
+    @Override
+    public String toString() {
+        return  "*****" +
+                ", \nPrice: " + price +
+                ", \nDescription: " + description +
+                ", \nCategory: " + category +
+                ", \nNew? " + isNew +
+                ", \nDate added: " + CREATED_DATE +
+                "\n*****\n";
     }
 }
